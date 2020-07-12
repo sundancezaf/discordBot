@@ -2,7 +2,7 @@
 
 This Discord Bot was made to get Covid-19 statistics.
 
-Invite bot here: [invite] (https://discord.com/api/oauth2/authorize?client_id=731054408091041793&permissions=0&scope=bot)
+Invite bot here: [invite](https://discord.com/api/oauth2/authorize?client_id=731054408091041793&permissions=0&scope=bot).
 
 All commands need to have "." as the prefix for them to work. Ex: for the command "stateTotal", the full 
 command is: `.stateTotal [state]`. You replace `[state]` with the name of the state. \
