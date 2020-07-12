@@ -69,4 +69,4 @@ Commands are:
 ```""")
 
 
-client.run('NzMxMDU0NDA4MDkxMDQxNzkz.XwmA-w.kt5R2Yyf6sfWWfwGOJifwdyIt5M')
+client.run(insert token here)
