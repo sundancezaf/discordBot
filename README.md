@@ -10,6 +10,7 @@ If the state is two words you will need to place it in quotation marks. Ex: `.st
 
 
 
+
 | Commands |  Actions |
 |----------|----------
 | firsEvent [state]  | give the date of the first case |
@@ -19,3 +20,4 @@ If the state is two words you will need to place it in quotation marks. Ex: `.st
 
 ** This project is a continuation of the Covid-Statistics project. Data used comes from [the NYTimes](https://github.com/nytimes/covid-19-data).
 
+**This project's data is updated daily in the actual code
