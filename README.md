@@ -13,10 +13,13 @@ If the state is two words you will need to place it in quotation marks. Ex: `.st
 
 | Commands |  Actions |
 |----------|----------
-| firsEvent [state]  | give the date of the first case |
-| previousDays [state] | gives the total of new cases for the past days given |
-| stateTotal [state] | gives total number of cases for the state. |
 | commandList | sends user a DM with the list of commands |
+| firsEvent [state]  | give the date of the first case |
+| stateTotal [state] | gives total number of cases for that state. |
+| pastCases [state] [number]| gives number of cases for the past number of days specified |
+| stateDeaths [state] | gives total number of deaths for that state |
+| totalCases | gives total number of cases for the US |
+| totalDeaths | gives total number of deaths for the US |
 
 ** This project is a continuation of the Covid-Statistics project. Data used comes from [the NYTimes](https://github.com/nytimes/covid-19-data).
 
