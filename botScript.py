@@ -1,9 +1,9 @@
 import os
 from discord.ext import commands
-from UltimatePandasCovid import *
+from covidDataFunctions import *
 
 # Need to run the UltimatePandasCovid script first as it will need to create the DataFrames to pull data from
-os.system('python UltimatePandasCovid.py')
+os.system('python covidDataFunctions.py')
 
 client = commands.Bot(command_prefix='.')
 
@@ -14,19 +14,19 @@ client = commands.Bot(command_prefix='.')
 async def on_ready():
     print('Bot is ready')
 
-
 # When the command needs an argument, the function will require a "ctx" argument before
 # the actual argument needed
 @client.command(aliases=['firstCase, firstEvent'])
 async def firstEvent(ctx, arg1):
-    arg1 = str(arg1)
-    answer = getFirstEvent(arg1)
+    state = str(arg1)
+    stateDF = stateDataFrame(state)
+    answer = stateDF.getFirstEvent()
     await ctx.send(answer)
 
 
 @client.command(aliases=['totalUS', 'totalForUS', 'USATotal', 'UStotal', 'USTotal'])
 async def totalCases(ctx):
-    answer = totalCasesUS()
+    answer = getTotalCases()
     # f string format,
     new = (f"{answer:,d}")
     await ctx.send(new)
@@ -35,14 +35,27 @@ async def totalCases(ctx):
 @client.command(aliases=['previousDays', 'lastCoupleDays'])
 async def pastCases(ctx, arg1, arg2):
     days = int(arg2)
-    answer = lastCoupleDays(arg1, days)
+    state = str(arg1)
+    stateDF = stateDataFrame(state)
+    answer = stateDF.lastCoupleDays(days)
     answer = (f"{answer:,d}")
     await ctx.send(answer)
 
 
 @client.command(aliases=['totalState', 'stateCases'])
 async def stateTotal(ctx, state):
-    answer = totalCasesState(state)
+    state = str(state)
+    stateDF = stateDataFrame(state)
+    answer = stateDF.totalCases()
+    answer = (f"{answer:,d}")
+    await ctx.send(answer)
+
+
+@client.command(aliases=['stateDeaths'])
+async def stateTotalDeaths(ctx, state):
+    state = str(state)
+    stateDF = stateDataFrame(state)
+    answer = stateDF.totalDeaths()
     answer = (f"{answer:,d}")
     await ctx.send(answer)
 
@@ -51,7 +64,7 @@ async def stateTotal(ctx, state):
 @client.command()
 async def commandList(ctx):
 
-	await ctx.author.send("""```
+    await ctx.author.send("""```
 Replace [state] with the name of the state. Replace [number] with a number. If it's a two word state, place in quotation marks. 
 Ex: "South Dakota". 
 
@@ -69,4 +82,4 @@ Commands are:
 ```""")
 
 
-client.run(insert token)
+client.run('INSERT YOUR TOKEN HERE')
