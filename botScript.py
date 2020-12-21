@@ -14,6 +14,7 @@ client = commands.Bot(command_prefix='.')
 async def on_ready():
     print('Bot is ready')
 
+
 # When the command needs an argument, the function will require a "ctx" argument before
 # the actual argument needed
 @client.command(aliases=['firstCase, firstEvent'])
@@ -38,8 +39,8 @@ async def pastCases(ctx, arg1, arg2):
     state = str(arg1)
     stateDF = stateDataFrame(state)
     answer = stateDF.lastCoupleDays(days)
-    answer = (f"{answer:,d}")
-    await ctx.send(answer)
+    final = (f"{answer:,d}")
+    await ctx.send(final)
 
 
 @client.command(aliases=['totalState', 'stateCases'])
@@ -47,8 +48,8 @@ async def stateTotal(ctx, state):
     state = str(state)
     stateDF = stateDataFrame(state)
     answer = stateDF.totalCases()
-    answer = (f"{answer:,d}")
-    await ctx.send(answer)
+    final = (f"{answer:,d}")
+    await ctx.send(final)
 
 
 @client.command(aliases=['stateDeaths'])
@@ -56,8 +57,15 @@ async def stateTotalDeaths(ctx, state):
     state = str(state)
     stateDF = stateDataFrame(state)
     answer = stateDF.totalDeaths()
-    answer = (f"{answer:,d}")
-    await ctx.send(answer)
+    final = (f"{answer:,d}")
+    await ctx.send(final)
+
+
+@client.command(aliases=['deathsTotal'])
+async def totalDeaths(ctx):
+    answer = getTotalDeaths()
+    final = (f"{answer:,d}")
+    await ctx.send(final)
 
 
 # This sends the user the following text as a DM. This is a help guide with all the commands.
@@ -82,4 +90,4 @@ Commands are:
 ```""")
 
 
-client.run('INSERT YOUR TOKEN HERE')
+client.run('INSERT TOKEN HERE')
