@@ -85,6 +85,8 @@ Commands are:
 	.firstEvent [state]
 	.totalCases
 	.pastCases [state] [number]
+    .totalDeaths
+    .stateDeaths [state]
 
 
 ```""")
